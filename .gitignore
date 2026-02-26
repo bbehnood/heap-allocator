@@ -1,4 +1,10 @@
 ### C ###
+# Build directory
+build/
+
+# Cache directory
+.cache
+
 # Prerequisites
 *.d
 
@@ -30,7 +36,6 @@
 *.dylib
 
 # Executables
-build/
 *.exe
 *.out
 *.app
