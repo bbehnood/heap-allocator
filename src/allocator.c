@@ -1,11 +1,13 @@
 #include "allocator.h"
 #include "internal.h"
+#include <stdint.h>
 #include <sys/mman.h>
 
 static block_t *heap_head = NULL;
 
 static block_t *request_space(size_t size)
 {
+    if (size > SIZE_MAX - META_SIZE) return NULL;
     size_t total_size = size + META_SIZE;
 
     block_t *block = mmap(NULL, total_size, PROT_READ | PROT_WRITE,
